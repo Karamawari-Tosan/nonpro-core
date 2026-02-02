@@ -30,6 +30,10 @@ AIエージェントの「頭脳」にあたる定義ファイル群です。
     - **00_Core**: 企業の憲法、システム設計、エージェント組織図。
     - **01_Business**: 事業計画、マーケティング戦略。
     - **02_Assets**: ブランド・アセット。
+    
+### `80_Resources/`
+実務で使用するテンプレートや素材ファイルを管理します。
+- **Vivliostyle_Template**: 書籍制作テンプレート。
 
 ## 🚀 Navigation
 
@@ -44,6 +48,11 @@ AIエージェントおよびコラボレーターは、まず以下のドキュ
 **👉 [`00_Context_Library/10_Knowledge/00_Core/Agent_Role_Architecture.md`](00_Context_Library/10_Knowledge/00_Core/Agent_Role_Architecture.md)**
 - 「拡張された経営チーム（Augmented C-Suite）」のコンセプト
 - 各エージェント（CSO, CEDO, CCOなど）の役割と責任範囲
+
+### Playbook (Operation Manuals)
+**👉 [`99_Guide/00_Playbook/00_Start_Here.md`](99_Guide/00_Playbook/00_Start_Here.md)**
+- イベント企画、スライド制作、書籍制作などの標準業務マニュアル（SOP）。
+- 各業務に対応するAIワークフローコマンドの案内。
 
 ---
 *Created by Antigravity & User*

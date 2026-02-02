@@ -1,0 +1,17 @@
+# Dependencies
+node_modules/
+
+# Build Output & Cache
+.vivliostyle/
+book.pdf
+vivliostyle_manuscript/
+
+# Editor & OS files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Tool Specific
+.claude/
+.obsidian/

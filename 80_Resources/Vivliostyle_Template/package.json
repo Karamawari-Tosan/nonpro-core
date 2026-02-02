@@ -1,0 +1,22 @@
+{
+  "name": "300_takahashi_tech_doujin",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "npm run prebuild && vivliostyle build --timeout 300",
+    "preview": "npm run prebuild && vivliostyle preview",
+    "prebuild": "node scripts/preprocess.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "devDependencies": {
+    "@vivliostyle/cli": "^10.3.0"
+  },
+  "dependencies": {
+    "qrcode": "^1.5.4"
+  }
+}

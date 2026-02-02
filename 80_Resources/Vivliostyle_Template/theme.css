@@ -1,0 +1,285 @@
+@page {
+    size: A5;
+    margin-top: 20mm;
+    margin-bottom: 20mm;
+    margin-left: 15mm;
+    margin-right: 15mm;
+}
+
+:root {
+    --vs-writing-mode: vertical-rl;
+    --vs-text-orientation: upright;
+}
+
+body {
+    writing-mode: vertical-rl;
+    font-family: "Noto Serif JP", serif;
+    margin: 0;
+
+    /* Reset global columns - default is single column */
+    column-count: 1;
+}
+
+/* Wrapper for Main Content Chapters */
+.main-content-wrapper {
+    column-count: 2;
+    column-gap: 8mm;
+    width: 100%;
+    height: 100%;
+    /* Ensure it fills pages */
+}
+
+/* Page break rules */
+h1 {
+    break-before: always;
+}
+
+/* Make h1 span across all columns */
+h1 {
+    column-span: all;
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: 1.6rem;
+    padding: 2rem 0;
+    break-before: page;
+}
+
+/* Vertical Text Utilities */
+.tcy {
+    -webkit-text-combine: horizontal;
+    text-combine-upright: all;
+}
+
+.upright {
+    text-orientation: upright;
+}
+
+
+/* Table of Contents */
+.toc {
+    break-after: page;
+    column-span: all;
+    /* Spans across columns if inside a multicol container */
+    margin-bottom: 2rem;
+}
+
+.toc ol {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    /* Ensure the list itself doesn't force columns if parent spans */
+}
+
+.toc li {
+    font-size: 1rem;
+    line-height: 1.8;
+    margin-bottom: 3rem;
+    /* Spacing between chapters */
+    font-weight: normal;
+}
+
+.toc li a {
+    font-weight: normal;
+}
+
+.toc li.toc-separator {
+    margin-top: 1rem;
+}
+
+/* QR Code */
+/* QR Code */
+.qr-code-wrap {
+    /* Inline block to sit within the vertical line, widening it nicely */
+    display: inline-block;
+    vertical-align: middle;
+
+    margin: 0.5em 0.5em 0.5em 0;
+    width: 2.0cm;
+    /* Slightly smaller to fit better */
+    height: auto;
+    background: #fff;
+    padding: 2px;
+    border: 1px solid #ccc;
+}
+
+.qr-code-wrap img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Colophon (奥付) */
+/* Colophon (奥付) */
+.colophon,
+.colophon-wrapper {
+    /* Visual separation from previous content */
+    break-before: page;
+    /* Naturally single column because it's outside the wrapper */
+
+    /* Vertical Colophon Style */
+    margin-top: 2rem;
+    /* Was 10vh - reducing to allow longer vertical lines */
+    padding: 0 2%;
+    font-size: 0.85rem;
+    font-family: "Noto Sans JP", sans-serif;
+    line-height: 1.55;
+}
+
+.colophon h1,
+.colophon-wrapper h1 {
+    font-size: 1.4rem;
+    margin-bottom: 1.5rem;
+}
+
+.colophon table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1rem 0;
+}
+
+.colophon td {
+    vertical-align: top;
+    padding: 0.2rem 0;
+}
+
+.colophon-label {
+    white-space: nowrap;
+    /* Don't wrap labels */
+    width: 4em;
+    /* Fixed width for labels */
+    font-weight: bold;
+    padding-left: 1em;
+    /* Space between label and value? In vertical-rl, left is bottom.. wait.
+       In vertical-rl table:
+       Rows go Right to Left.
+       Cells in row go Top to Bottom.
+       We want:
+       [Label] [Value]
+       BUT in vertical-rl, TR is a vertical column? No. 
+       Standard Table in vertical-rl references:
+       "tr" is a column visually?
+       Let's assume simple block flow first.
+       If simple text flow is [Label] [Value] locally horizontal? No vertical text flow.
+       
+       Better approach for key-value in vertical text:
+       Just use paragraphs with indent.
+       
+       <p><span class="label">著者</span>　　NANA</p>
+       
+       This is safer than tables in mixed writing modes.
+       Let's try the table first as Vivliostyle handles it well usually.
+       If visual is [Label] (top) [Value] (bottom) -> that's a column.
+       User image shows:
+       [Label]   [Value]
+       (Right)   (Left)  <-- Wait, vertical text lines are vertical.
+       Line 1: 著者 NANA
+       Line 2: 監修 ...
+       
+       So it is just lines of text.
+       <p>著者　NANA</p>
+       
+       I will stick to Table for alignment (justifying the label).
+       But if Table fails, simplest is text.
+       
+       Let's trust Table for now, but ensure no borders.
+    */
+    padding-bottom: 1em;
+    /* In vertical, this is spacing to the left (next cell) */
+}
+
+/* Re-reading user image:
+   It looks like standard vertical lines.
+   Line 1: 著者   NANA
+   Line 2: 監修   ...
+   
+   The space between "著者" and "NANA" is aligned.
+   This suggests a table where Row 1 is "著者", Row 2 "NANA"?
+   No, "著者" and "NANA" are on the SAME vertical line.
+   So they are in the same block.
+   
+   If I use Table:
+   TR 1: TD 1 (Label), TD 2 (Value)
+   In Vertical-RL:
+   TRs stack Right-to-Left.
+   TDs stack Top-to-Bottom.
+   So TR1 is the right-most "column". 
+   TD1 is the top part "著者".
+   TD2 is the bottom part "NANA".
+   THIS IS CORRECT.
+*/
+
+.colophon-label {
+    text-align: justify;
+    text-align-last: justify;
+    height: 4em;
+    /* Using height for width in vertical? */
+    /* In vertical mode, logical 'width' is physical height. */
+    /* Let's try explicit spacing if justify is hard */
+}
+
+.colophon-value {
+    padding-top: 1em;
+    /* Physical top (gap between label and name) */
+}
+
+/* Specific dividers */
+.colophon-divider__top,
+.colophon-divider__bottom {
+    border: 0;
+    border-right: 2px solid #333;
+    /* Vertical line in vertical mode */
+    height: 100%;
+    /* Full height (width) */
+    width: 0;
+    margin: 1.5em 0;
+    /* Margin left/right (physical) */
+}
+
+.colophon-header {
+    margin-bottom: 2rem;
+    font-size: 0.8rem;
+}
+
+.colophon-bs {
+    height: 2rem;
+    /* Spacer */
+}
+
+
+/* Vertical TOC Layout Strategy:
+   We want: [Title] ........... [PageNum]
+*/
+.toc a {
+    text-decoration: none;
+    color: black;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: end;
+    /* Align to the bottom/left of the line */
+
+    border-bottom: 1px dotted #ccc;
+}
+
+.toc a::after {
+    content: target-counter(attr(href), page);
+    background-color: white;
+    /* Clear background for number */
+    padding-top: 0.5em;
+    /* Space from dots */
+}
+
+/* Page Numbers (Nonburu) */
+@page {
+
+    /* In Vertical-RL (Japan style):
+       Bottom-center is physically LEFT-CENTER of the sheet.
+       We want the number to be horizontal (e.g. "10").
+    */
+    @bottom-center {
+        content: counter(page);
+        font-family: "Noto Serif JP", serif;
+        font-size: 9pt;
+        /* Force horizontal writing for page numbers so they don't rotate or stack vertically */
+        writing-mode: horizontal-tb;
+    }
+}
