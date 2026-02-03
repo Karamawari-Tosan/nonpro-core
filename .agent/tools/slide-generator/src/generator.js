@@ -240,7 +240,7 @@ function fillPlaceholder(slide, slideData, layoutConfig, slideNumber) {
   }
 
   // 本文を設定
-  if (placeholders.BODY && slideData.body) {
+  if (placeholders.BODY && slideData.bodyItems && slideData.bodyItems.length > 0) {
     try {
       const placeholder = slide.getPlaceholder(
         SlidesApp.PlaceholderType[placeholders.BODY.type],
@@ -248,9 +248,23 @@ function fillPlaceholder(slide, slideData, layoutConfig, slideNumber) {
       );
       if (placeholder) {
         const textRange = placeholder.asShape().getText();
-        // \n を改行として扱う
-        const bodyText = slideData.body.replace(/\n/g, '\n');
+
+        // BULLETSレイアウトの場合はタブでネストレベルを反映
+        var bodyText;
+        if (slideData.layout === 'BULLETS') {
+          bodyText = slideData.bodyItems.map(function(item) {
+            return '\t'.repeat(item.level) + item.text;
+          }).join('\n');
+        } else {
+          bodyText = slideData.bodyItems.map(function(item) { return item.text; }).join('\n');
+        }
+
         textRange.setText(bodyText);
+
+        // BULLETSレイアウトの場合は箇条書きスタイルを適用
+        if (slideData.layout === 'BULLETS') {
+          textRange.getListStyle().applyListPreset(SlidesApp.ListPreset.DISC_CIRCLE_SQUARE);
+        }
       } else {
         console.warn('Slide ' + slideNumber + ': BODY placeholder not found');
       }

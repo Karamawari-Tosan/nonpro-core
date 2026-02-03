@@ -25,10 +25,10 @@ const CONFIG = {
   LAYOUTS: {
     // 表紙: タイトル + サブタイトル
     TITLE: {
-      NAME: 'CUSTOM_2',
+      NAME: 'CUSTOM_7_1_1',
       PLACEHOLDERS: {
         TITLE: { type: 'TITLE', index: 0 },
-        SUBTITLE: { type: 'SUBTITLE', index: 0 }
+        SUBTITLE: { type: 'TITLE', index: 1 }
       }
     },
     // 中表紙: タイトルのみ
@@ -40,15 +40,15 @@ const CONFIG = {
     },
     // 通常: タイトル + 本文
     BODY: {
-      NAME: 'CUSTOM_1',
+      NAME: 'CUSTOM_2',
       PLACEHOLDERS: {
         TITLE: { type: 'TITLE', index: 0 },
-        BODY: { type: 'BODY', index: 0 }
+        BODY: { type: 'SUBTITLE', index: 0 }
       }
     },
     // 箇条書き用: タイトル + 本文 (リストに適したレイアウト)
     BULLETS: {
-      NAME: 'CUSTOM_1_1',
+      NAME: 'CUSTOM_1_2',
       PLACEHOLDERS: {
         TITLE: { type: 'TITLE', index: 0 },
         BODY: { type: 'BODY', index: 0 }

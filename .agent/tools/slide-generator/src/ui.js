@@ -13,6 +13,8 @@ function onOpen() {
     .addItem('Export to Drive', 'showExportDialog')
     .addSeparator()
     .addItem('Settings', 'showSettings')
+    .addSeparator()
+    .addItem('レイアウト一覧', 'showLayoutInfo')
     .addItem('About', 'showAbout')
     .addToUi();
 
@@ -146,6 +148,48 @@ function showSettings() {
       ui.alert('キャンセル', '設定は変更されませんでした。', ui.ButtonSet.OK);
     }
   }
+}
+
+/**
+ * 現在のプレゼンテーションのレイアウト・プレースホルダ一覧を表示する
+ * マスターに定義されている全レイアウトと、各レイアウトで利用可能なプレースホルダタイプを走査する
+ */
+function showLayoutInfo() {
+  const presentation = SlidesApp.getActivePresentation();
+  const masters = presentation.getMasters();
+  const PLACEHOLDER_TYPES = ['TITLE', 'CENTER_TITLE', 'SUBTITLE', 'BODY', 'OBJECT'];
+
+  var lines = [];
+
+  masters.forEach(function(master, mIdx) {
+    lines.push('--- Master ' + mIdx + ' ---');
+    const layouts = master.getLayouts();
+
+    layouts.forEach(function(layout) {
+      const layoutName = layout.getLayoutName();
+      var placeholders = [];
+
+      PLACEHOLDER_TYPES.forEach(function(type) {
+        for (var idx = 0; idx < 2; idx++) {
+          try {
+            var ph = layout.getPlaceholder(SlidesApp.PlaceholderType[type], idx);
+            if (ph) {
+              placeholders.push(type + '[' + idx + ']');
+            }
+          } catch (e) {
+            // プレースホルダが存在しない場合はスキップ
+          }
+        }
+      });
+
+      lines.push(layoutName + ' : ' + (placeholders.length ? placeholders.join(', ') : '(なし)'));
+    });
+  });
+
+  const output = lines.join('\n');
+  console.log('=== Layout Info ===\n' + output);
+
+  SlidesApp.getUi().alert('レイアウト一覧', output, SlidesApp.getUi().ButtonSet.OK);
 }
 
 /**

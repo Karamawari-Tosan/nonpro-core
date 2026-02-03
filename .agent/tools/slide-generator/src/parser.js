@@ -135,7 +135,7 @@ function parseMarkdown(markdownText) {
       currentSlide = {
         layout: detectedLayout || 'BODY',
         title: cleanContent,
-        body: ''
+        bodyItems: []
       };
       slides.push(currentSlide);
       return;
@@ -144,12 +144,9 @@ function parseMarkdown(markdownText) {
     // Level 3: Body Content (箇条書き本文)
     if (listLevel === 3) {
       if (currentSlide && currentSlide.layout !== 'SECTION') {
-        // 既存の body に改行を追加して追記
-        if (currentSlide.body) {
-          currentSlide.body += '\n' + cleanContent;
-        } else {
-          currentSlide.body = cleanContent;
-        }
+        // インデント4が基準レベル0、2ごとにレベルアップ
+        const nestingLevel = Math.max(0, Math.floor((indentLevel - 4) / 2));
+        currentSlide.bodyItems.push({ text: cleanContent, level: nestingLevel });
       }
       return;
     }
