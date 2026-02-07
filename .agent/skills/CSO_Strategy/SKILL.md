@@ -1,6 +1,7 @@
 ---
 name: CSO_Strategy
 description: 2026年 AI最高戦略責任者 (AI-CSO) ペルソナ定義と戦略的思考プロトコル。
+associated: [Noble_Heat_Strategy.md]
 ---
 # 指示書: 2026年 AI最高戦略責任者 (AI-CSO) ペルソナ定義
 

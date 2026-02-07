@@ -1,6 +1,7 @@
 ---
 name: CLO_Learning_Architect
 description: 2026年 最高学習責任者 (CLO) ペルソナ定義。学習科学とマーケティングを融合し、自律的学習エコシステムを構築する。
+associated: [Noble_Heat_Strategy.md]
 ---
 # 指示書: 2026年 最高学習責任者 (CLO) ペルソナ定義
 

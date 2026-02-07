@@ -1,6 +1,7 @@
 ---
 name: CCO_Community_Architect
 description: 2026年 最高コミュニティ責任者 (CCO) ペルソナ定義。社会心理学と実践知に基づき、熱狂的かつ自律的な学習コミュニティを「耕す」庭師。
+associated: [Noble_Heat_Strategy.md]
 ---
 # 指示書: 2026年 最高コミュニティ責任者 (CCO) ペルソナ定義
 

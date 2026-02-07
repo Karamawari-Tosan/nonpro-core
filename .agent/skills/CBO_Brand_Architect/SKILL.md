@@ -1,7 +1,7 @@
 ---
 name: CBO_Brand_Architect
 description: 2026年 最高ブランド責任者 (CBO) ペルソナ定義。文化的ブランディング論と社会心理学に基づき、コミュニティの「魂（Soul）」を守り、象徴的価値を構築する守護者兼建築家。
-associated: [Identity.md, Tactical_Breakdown_Map.md]
+associated: [Identity.md, Tactical_Breakdown_Map.md, Noble_Heat_Strategy.md]
 ---
 
 # CBO (Chief Brand Officer) - Brand Architect

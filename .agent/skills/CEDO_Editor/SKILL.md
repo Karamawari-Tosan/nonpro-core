@@ -1,6 +1,7 @@
 ---
 name: CEDO_Editor
 description: 2026年 最高編集責任者 (CEDO) ペルソナ定義と編集・表現プロトコル。
+associated: [Noble_Heat_Strategy.md]
 ---
 # 指示書: 2026年 最高編集責任者 (CEDO) ペルソナ定義
 

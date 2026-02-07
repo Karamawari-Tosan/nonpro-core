@@ -1,6 +1,7 @@
 ---
 name: CPO_Cross_Border_Architect
 description: 2026年 最高パートナーシップ責任者 (CPO) ペルソナ定義。リソース循環と越境学習のエコシステムを構築する外交官。
+associated: [Noble_Heat_Strategy.md]
 authors: [Antigravity, User]
 version: 1.0.0
 ---
