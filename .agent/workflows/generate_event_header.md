@@ -16,6 +16,7 @@ AIによる画像生成と、Pythonスクリプトによる「余白拡張（Can
 *   **Subject:** 何を描くか（例：実験室、キャンプファイヤー、登山）
 *   **Mood:** 雰囲気（例：未来的、温かい、プロフェッショナル）
 *   **Colors:** ブランドカラーやテーマカラー（例：ノンプロ研オレンジ、テックブルー）
+*   **Background:** 拡張した余白にテキスト（黒字など）を乗せやすくするため、背景色は必ず**「淡色（Pale / Light）」**に指定する。（例：Very pale warm gray, Off-white）
 *   **Composition:** 「右側にイラスト、左側に余白」が鉄則。
 
 ## 2. 画像生成 (Generation)
@@ -27,8 +28,8 @@ AIエージェントを使用し、以下の要件で画像を生成します。
 ```text
 A conceptual illustration of [Subject].
 Style: [Mood/Style], isometric 3D, high quality.
-Composition: The main element is positioned on the RIGHT side. The LEFT side is clean negative space or simple background.
-Colors: [Colors].
+Composition: The main element is positioned on the RIGHT side. The LEFT side is clean, VERY PALE and LIGHT negative space or simple background suitable for overlaying text.
+Colors: [Colors]. Ensure the background color is extremely light/pale.
 ```
 
 **実行コマンド例:**
