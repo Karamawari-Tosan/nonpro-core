@@ -26,11 +26,6 @@ AIエージェントと共に業務を進める際は、まずここを参照し
 *   Markdownによるスライド原稿作成 (`/create_slide_draft`)
 *   Google Slides連携 (GAS)
 
-### 4. 書籍制作 (Book Production)
-Vivliostyleを使用した縦書き書籍（同人誌・電子書籍）の制作フロー。
-👉 **[04_Book_Production.md](04_Book_Production.md)**
-*   縦書きプロジェクト作成 (`/create_vertical_book`)
-
 ---
 
 ## 🛠️ Related Resources

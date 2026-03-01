@@ -1,57 +1,57 @@
 # nonpro-core
 
 株式会社プランノーツの「ナレッジベース」兼「AIエージェントリポジトリ」です。
-このリポジトリは、プロジェクト参加メンバーおよびAIエージェント（Antigravity / Claude Code）と協働するための「第二の脳」の構造、およびそれを運用するためのエージェント定義を共有・公開するものです。
+このリポジトリは、プロジェクト参加メンバーおよびAIエージェント（Antigravity / Claude Code）と協働するための環境構造、およびそれを運用するためのエージェント定義を統合し、「Single Source of Truth（単一情報源）」として機能します。
 
-## 🏛️ Core Concept
+## 🏛️ Core Concept & Team Architecture
 
-このリポジトリは以下の2つの要素で構成されています。
+このリポジトリは、人間とAIが自律的に協働する環境を定義しています。作業は「ドキュメントアプリによる管理」から「IDEとAIエージェントによる共同作業」というエンジニアリング・スタイルに移行しました。
 
-### 1. Company Knowledge (憲法・歴史・アセット)
-企業のアイデンティティ、戦略、ブランド資産など、不変的かつ根源的な情報を管理します。
-AIエージェントはこれらを「Context（文脈）」として参照し、一貫性のあるアウトプットを生成します。
+### チーム編成（The Team）
+| メンバー / エージェント | 役割 (Role) | 担当領域 |
+| :--- | :--- | :--- |
+| **Human (あなた)** | Publisher / PM | 企画決定、最終承認、要件定義、Goサイン。 |
+| **Antigravity** | Director & CXO | メインの作業・開発パートナー。戦略立案、執筆、コーディング、システム構築。 |
+| **Claude Code** or **Gemini CLI** | Ops / Librarian | 自動整理、リファクタリング支援、Git運用などの裏方業務。 |
 
-### 2. AI Agents (頭脳・スキル)
-ナレッジを活用し、実務を遂行するAIエージェントの定義ファイルです。
-Google Antigravityなどのエージェントが、ここで定義されたペルソナ（CBO, CCO, CEDOなど）に従って活動します。
+### リポジトリの2本柱
+1. **Company Knowledge (知識・資産)**
+   戦略、歴史、ブランド資産など、不変的かつ根源的な情報を管理します。AIエージェントはこれらを常に文脈（Context）として参照し、深い整合性を保ちます。
+2. **AI Agents (頭脳・スキル)**
+   ナレッジを活用し、専門領域を遂行するAIエージェントの定義（Persona / Skill）およびワークフロー群です。
 
 ## 📍 Directory Structure
 
-主な公開ディレクトリは以下の通りです。
+主な運用構造は以下の通りです。
 
 ### `.agent/`
-AIエージェントの「頭脳」にあたる定義ファイル群です。
-- **Skills**: 各CXO（最高責任者）クラスのエージェントペルソナ定義。
-- **Workflows**: 定型業務の手順書。
+AIエージェントのアクティブなスキルとワークフロー定義。
+- **Skills**: 各CXO（最高責任者）クラスのペルソナ定義（CBO, CCO, CEDOなど）や、壁打ち支援（sounding_board）などの特定スキル。
+- **Workflows**: 定型業務の自動化手順書（`/create_event_plan` など）。
 
 ### `00_Context_Library/`
-エージェントが参照すべき「ルールブック」兼「知識の源泉」です。
+エージェントが参照すべき知識の源泉。
 - **10_Knowledge**:
-    - **00_Core**: 企業の憲法、システム設計、エージェント組織図。
-    - **01_Business**: 事業計画、マーケティング戦略。
-    - **02_Assets**: ブランド・アセット。
-    
+    - **00_Core**: 企業理念、AIエージェントの組織図。
+    - **01_Business**: 事業計画、マーケティング文脈。
+    - **02_Assets**: ロゴや各種ブランド資産。
+
 ### `80_Resources/`
 実務で使用するテンプレートや素材ファイルを管理します。
 - **Vivliostyle_Template**: 書籍制作テンプレート。
 
-## 🚀 Navigation
+## 🚀 Navigations
 
-AIエージェントおよびコラボレーターは、まず以下のドキュメントを参照してください。
-
-### System Architecture
-**👉 [`00_Context_Library/10_Knowledge/00_Core/system_design.md`](00_Context_Library/10_Knowledge/00_Core/system_design.md)**
-- 「Headless Obsidian Workflow」のコンセプト
-- 人間とAIの役割分担
+AIエージェントおよびコラボレーターは、実務にあたりまず以下のドキュメントを参照してください。
 
 ### Agent Role Architecture
 **👉 [`00_Context_Library/10_Knowledge/00_Core/Agent_Role_Architecture.md`](00_Context_Library/10_Knowledge/00_Core/Agent_Role_Architecture.md)**
-- 「拡張された経営チーム（Augmented C-Suite）」のコンセプト
-- 各エージェント（CSO, CEDO, CCOなど）の役割と責任範囲
+- 「拡張された経営チーム（Augmented C-Suite）」のコンセプト。
+- 各エージェント（CSO, CEDO, CCOなど）や支援スキル（sounding_board）の役割と責任範囲。
 
 ### Playbook (Operation Manuals)
 **👉 [`99_Guide/00_Playbook/00_Start_Here.md`](99_Guide/00_Playbook/00_Start_Here.md)**
-- イベント企画、スライド制作、書籍制作などの標準業務マニュアル（SOP）。
+- イベント企画、スライド制作などの標準業務マニュアル（SOP）。
 - 各業務に対応するAIワークフローコマンドの案内。
 
 ---
