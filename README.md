@@ -70,6 +70,9 @@ AIエージェントのアクティブなスキルとワークフロー定義。
 - **AIエージェント**: [.agent/README.md](.agent/README.md)
 - **ナレッジベース**: [00_Context_Library/INDEX.md](00_Context_Library/INDEX.md)
 
+### コントリビューター
+- **[Contributing Guide](CONTRIBUTING.md)** - コミット規約、ブランチ戦略、PR プロセス
+
 ---
 
 ## 📖 主要ドキュメント
