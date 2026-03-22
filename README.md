@@ -24,35 +24,65 @@
 
 主な運用構造は以下の通りです。
 
-### `.agent/`
+### `.agent/` - AIエージェント定義
 AIエージェントのアクティブなスキルとワークフロー定義。
 - **Skills**: 各CXO（最高責任者）クラスのペルソナ定義（CBO, CCO, CEDOなど）や、壁打ち支援（sounding_board）などの特定スキル。
 - **Workflows**: 定型業務の自動化手順書（`/create_event_plan` など）。
+- **Tools**: 実行スクリプト・ツール群（スライド生成、画像処理など）。
 
-### `00_Context_Library/`
+**詳細**: [.agent/README.md](.agent/README.md)
+
+### `99_Guide/` - ユーザーガイド・マニュアル
+環境構築、セキュリティ、業務マニュアル（Playbook）、ツール使い方ガイド。
+- **00_Setup_Guide.md**: 環境構築・オンボーディング
+- **01_Security_Guidelines.md**: セキュリティガイドライン
+- **00_Playbook/**: 業務標準手順書（SOP）
+- **01_Tools/**: ツール使い方ガイド
+
+**詳細**: [99_Guide/README.md](99_Guide/README.md)
+
+### `00_Context_Library/` - ナレッジベース
 エージェントが参照すべき知識の源泉。
 - **10_Knowledge**:
-    - **00_Core**: 企業理念、AIエージェントの組織図。
-    - **01_Business**: 事業計画、マーケティング文脈。
-    - **02_Assets**: ロゴや各種ブランド資産。
+    - **00_Core**: 企業理念、AIエージェントの組織図
+    - **01_Business**: 事業計画、マーケティング文脈
+    - **02_Assets**: ロゴや各種ブランド資産
+- **20_Glossary**: 哲学的概念・用語集
 
-### `80_Resources/`
+**詳細**: [00_Context_Library/INDEX.md](00_Context_Library/INDEX.md)
+
+### `80_Resources/` - リソース・テンプレート
 実務で使用するテンプレートや素材ファイルを管理します。
-- **Vivliostyle_Template**: 書籍制作テンプレート。
+- **Vivliostyle_Template**: 書籍制作テンプレート
 
-## 🚀 Navigations
+### `90_Archive/` - アーカイブ
+過去の分析レポートや一時的なドキュメントを保管します。
 
-AIエージェントおよびコラボレーターは、実務にあたりまず以下のドキュメントを参照してください。
+## 🚀 Quick Start & Navigations
+
+### 新規参加メンバー
+1. **[環境構築](99_Guide/00_Setup_Guide.md)** - 開発ツールのインストールとセットアップ
+2. **[セキュリティガイドライン](99_Guide/01_Security_Guidelines.md)** - AI利用時の注意事項
+3. **[Playbook](99_Guide/00_Playbook/00_Start_Here.md)** - 業務フローの理解
+
+### 既存メンバー
+- **業務マニュアル**: [99_Guide/README.md](99_Guide/README.md)
+- **AIエージェント**: [.agent/README.md](.agent/README.md)
+- **ナレッジベース**: [00_Context_Library/INDEX.md](00_Context_Library/INDEX.md)
+
+---
+
+## 📖 主要ドキュメント
 
 ### Agent Role Architecture
 **👉 [`00_Context_Library/10_Knowledge/00_Core/Agent_Role_Architecture.md`](00_Context_Library/10_Knowledge/00_Core/Agent_Role_Architecture.md)**
-- 「拡張された経営チーム（Augmented C-Suite）」のコンセプト。
-- 各エージェント（CSO, CEDO, CCOなど）や支援スキル（sounding_board）の役割と責任範囲。
+- 「拡張された経営チーム（Augmented C-Suite）」のコンセプト
+- 各エージェント（CSO, CEDO, CCOなど）や支援スキル（sounding_board）の役割と責任範囲
 
 ### Playbook (Operation Manuals)
 **👉 [`99_Guide/00_Playbook/00_Start_Here.md`](99_Guide/00_Playbook/00_Start_Here.md)**
-- イベント企画、スライド制作などの標準業務マニュアル（SOP）。
-- 各業務に対応するAIワークフローコマンドの案内。
+- イベント企画、スライド制作などの標準業務マニュアル（SOP）
+- 各業務に対応するAIワークフローコマンドの案内
 
 ---
 *Created by Antigravity & User*
