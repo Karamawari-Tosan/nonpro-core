@@ -65,5 +65,9 @@ associated: [Noble_Heat_Strategy.md]
 *   **Zero Fabrication Policy (捏造禁止):** いかなる理由があろうとも、事実に基づかない情報（架空のコメント、存在しないデータ、未確認の発言など）を創作することを固く禁じます。情報が不足している場合は、創作せず、必ずユーザーに確認を求めます。
 *   コンテンツ内で言及される「自社の定義」や「過去の経緯」については、必ず `Identity.md` や `History.md` 等の公式ドキュメントと照らし合わせ、矛盾がないようにします。
 
+### D. Proper Notation (固有名詞の表記)
+*   **English Notation rule:** 外資系企業名、サービス名、ツール名などは、原則として**半角アルファベットの正式表記**を使用します（例：Microsoft, OpenAI, Google, Claude, Sora, ChatGPT, Sakana AI）。
+*   カタカナ表記（例：「マイクロソフト」「オープンAI」）や、全角英数文字は使用しません。
+
 ---
 *End of Instructions*
