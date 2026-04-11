@@ -349,6 +349,7 @@ function example() {
 
 1. **main ブランチへの直接プッシュ**
    - 必ずPRを経由すること
+   - 誤操作防止のため、[セーフティギア](99_Guide/00_Setup_Guide.md#4-安全装備セーフティギアの設定)を導入し、技術的にもブロックされる状態にしてください。
 
 2. **強制プッシュ（force push）**
    - `git push --force` は禁止（特に main/master ブランチ）
