@@ -7,7 +7,8 @@ HOOK_LOGIC_PATH="$HOME/.githooks/plannauts/hook-logic.js"
 
 if [ -f "$HOOK_LOGIC_PATH" ]; then
     # Node.jsを呼び出し、引数と標準入力をそのまま渡す
-    node "$HOOK_LOGIC_PATH" "$@" < /dev/stdin
+    # Windowsでも動作するように、標準入力をパイプで渡す
+    cat | node "$HOOK_LOGIC_PATH" "$@"
     exit $?
 else
     # フックファイルが見つからない場合は正常終了（プッシュを妨げない）
