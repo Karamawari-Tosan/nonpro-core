@@ -1,0 +1,15 @@
+#!/bin/sh
+# Plannauts Global Safety Gear - Shell Wrapper
+
+# 1. ユーザーホーム配下のJSファイルのパスを特定
+# Windows/Mac両対応のため HOME 変数を使用
+HOOK_LOGIC_PATH="$HOME/.githooks/plannauts/hook-logic.js"
+
+if [ -f "$HOOK_LOGIC_PATH" ]; then
+    # Node.jsを呼び出し、引数と標準入力をそのまま渡す
+    node "$HOOK_LOGIC_PATH" "$@" < /dev/stdin
+    exit $?
+else
+    # フックファイルが見つからない場合は正常終了（プッシュを妨げない）
+    exit 0
+fi
