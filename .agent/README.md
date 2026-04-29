@@ -22,11 +22,14 @@ Antigravity / Claude Code が特定の専門家として振る舞うためのペ
 | スキル名 | 役割 | 専門領域 |
 |:---|:---|:---|
 | **CSO_Strategy** | 最高戦略責任者 | 戦略立案、ビジネスモデル設計、全体方針 |
+| **CMO_Marketing_Architect** | 最高マーケティング責任者 | マーケティング戦略、Noble Heat Framework、施策統括 |
 | **CCO_Community_Architect** | 最高コミュニティ責任者 | コミュニティ設計、文化醸成、イベント企画 |
 | **CEDO_Editor** | 最高編集責任者 | コンテンツ編集、表現磨き込み、原稿レビュー |
 | **CLO_Learning_Architect** | 最高学習責任者 | 学習体験設計、カリキュラム開発、教育プログラム |
 | **CPO_Cross_Border_Architect** | 最高パートナーシップ責任者 | 外部連携、越境学習、パートナーシップ構築 |
 | **CBO_Brand_Architect** | 最高ブランド責任者 | ブランディング、象徴的価値の定義、理念体現 |
+| **UX_Researcher** | UXリサーチャー | UX/UI分析、ヒューリスティック評価、課題発見 |
+| **Frontend_Prototyper** | フロントエンドプロトタイパー | 高速UI実装、LP制作、インタラクティブモックアップ |
 | **sounding_board** | 壁打ち相手 | アイデアの整理、思考の言語化支援 |
 
 ### 使い方（エンドユーザー向け）
@@ -51,6 +54,7 @@ Antigravity のチャット欄で `@` を入力し、スキル名の一部（例
 
 | コマンド | 説明 | 主な出力 |
 |:---|:---|:---|
+| `/init_workspace` | 新規プロジェクト初期化 | Git初期化、README、AGENTS.md、.gitignore |
 | `/cxo_summit` | CXO会議の開催 | 各専門家の意見集約、議事録 |
 | `/create_event_plan` | イベント企画書の生成 | 企画書、Peatix説明文案 |
 | `/create_peatix_page` | Peatixページ作成 | イベントページ用テキスト |
@@ -105,5 +109,5 @@ Antigravity のチャット欄で `/` を入力すると利用可能なワーク
 
 ---
 
-**Last Updated**: 2026-03-22
+**Last Updated**: 2026-04-19
 **Maintained by**: Antigravity & Team

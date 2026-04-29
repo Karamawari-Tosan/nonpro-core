@@ -1,0 +1,12 @@
+{
+  "name": "nonpro-core",
+  "version": "1.0.0",
+  "description": "Plannauts AI Agent Core Repository",
+  "scripts": {
+    "protect-main": "node .agent/tools/safety-gear/install.js",
+    "unprotect-main": "node .agent/tools/safety-gear/uninstall.js",
+    "check-protection": "node .agent/tools/safety-gear/check.js"
+  },
+  "author": "Plannauts",
+  "license": "ISC"
+}
